@@ -5040,7 +5040,7 @@ impl GlyphCache {
             paint.blend_mode = blend_mode;
             let intensity = intensity.to_scale();
             paint.set_color(
-                tiny_skia::Color::from_rgba(intensity, intensity, intensity, intensity).unwrap(),
+                tiny_skia::Color::from_rgba(intensity, intensity, intensity, 1.0).unwrap(),
             );
             paint.anti_alias = match aa {
                 PolyAA::AntiAlias => true,
@@ -6029,7 +6029,7 @@ fn fill_rect(buffer: &mut Image, x: Range<f32>, y: Range<f32>, intensity: BlockA
     let mut paint = Paint::default();
     let intensity = intensity.to_scale();
     paint.set_color(
-        tiny_skia::Color::from_rgba(intensity, intensity, intensity, intensity).unwrap(),
+        tiny_skia::Color::from_rgba(intensity, intensity, intensity, 1.0).unwrap(),
     );
     paint.anti_alias = false;
     paint.force_hq_pipeline = true;
